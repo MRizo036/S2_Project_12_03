@@ -32,20 +32,22 @@ var donationTotal = 0;
 // The line below is stating that each value in the donor array will be added to one another, calculating the sum of all the donations listed in the array.
 donors.forEach(calcSum);
 // The line below created a variable with the name of summaryTable. The variable is being assigned the value of the concatinated strings and values. Donor length states that the nnumber of the donor values in the donar array will be displayed. 
-var summaryTable = "<table><tr><th>" + donors.length + "</th><td>donors</td></tr><tr><th>Total Donations</th><td>$" + donationTotal.toLocaleString() + "</td></tr></table>"
-// The line below states that the value of summaryTable will be written inside of the HTMl document within the element with an ID of donationSummary
+var summaryTable = "<table><tr><th>Donors</th><td>" + donors.length + "</td></tr><tr><th>Total Donations</th><td>$" + donationTotal.toLocaleString() + "</td></tr></table>"
+// The line below states that the value of summaryTable will be written inside of the HTMl document within the element with an ID of donationSummary.
 document.getElementById("donationSummary").innerHTML = summaryTable;
-
+// The line below creates a variable with the name of majorDonors. The variable is assigned the value of the donars array filtered to find highest values stored within the array.
 var majorDonors = donors.filter(findMajorDonors);
 
+// The line below states that the values listed within the majorDonor array will be sorted in descending order. 
 majorDonors.sort(donorSortDescending);
 
+//The line below creates a variable with the name of donarTable that is is assigned the value of the HTML string below.
 var donorTable = "<table> <caption>Major Donors</caption> <tr><th>Donation</th><th>Donor ID</th> <th>Date</th><th>Name</th><th>Address</th> <th>Phone</th><th>E-mail</th></tr>";
-
+//The line below states that the donor row for each majorDonors value in the array will be witten in the table.
 majorDonors.forEach(writeDonorRow);
-
+// The line below states that the string will be attached to the end of the donorTable variable
 donorTable += "</table>";
-
+// The line below states that the value of donorTable will be written inside of the HTML document within the element with an ID of donorTable.
 document.getElementById("donorTable").innerHTML = donorTable;
 
 function calcSum(donorAmt) {
